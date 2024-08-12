@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+thead {
+  background-color: #343a40 !important;  /* Dark background */
+  color: white !important;               /* White text */
+}
+/* Change cursor to pointer */
+th.sortable {
+  cursor: pointer;
+  user-select: none; /* Prevents text selection */
+}
+
+/* Add a hover effect for better UX */
+th.sortable:hover {
+  background-color: #f0f0f0; /* Light grey background on hover */
+  color: #007bff; /* Optional: change text color to indicate interactivity */
+}

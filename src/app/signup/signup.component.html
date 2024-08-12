@@ -1,0 +1,42 @@
+
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4" style="width: 400px;">
+    <h2 class="text-center mb-4">Sign Up</h2>
+
+    <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm" class="form-signup">
+      <div class="form-group mb-3">
+        <label for="name">Name</label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control" required />
+        <div *ngIf="signupForm.submitted && !signupForm.controls['name']?.valid" class="text-danger">
+          Username is required
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" class="form-control" required />
+        <!-- Validation message -->
+        <div *ngIf="signupForm.submitted && !signupForm.controls['username']?.valid" class="text-danger">
+          Username is required
+        </div>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required [pattern]="passwordPattern"
+               #passwordInput="ngModel" />
+        <!-- Validation message -->
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+          <div *ngIf="passwordInput.errors?.['required']">New Password is required.</div>
+          <div *ngIf="passwordInput.errors?.['pattern']">
+            Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 special character, 1 number, and be at least 7 characters long.
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+    </form>
+  </div>
+</div>
+

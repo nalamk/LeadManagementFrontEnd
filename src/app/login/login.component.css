@@ -1,0 +1,12 @@
+.text-danger {
+  font-size: 0.875rem;
+  color: #dc3545; /* Bootstrap's danger color */
+}
+
+/* You might want to style the form and button further */
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
